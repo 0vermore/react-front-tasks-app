@@ -9,7 +9,7 @@ class TasksContainer extends Component {
 
 	getAuthToken() {
 		var config = {
-			baseURL: 'http://localhost:4000' || 'https://tasks-api-rails.herokuapp.com',
+			baseURL: 'https://tasks-api-rails.herokuapp.com',
 			timeout: 10000,
 			headers: {'Authorization': 'Bearer ' + localStorage.getItem('jwt'),
 			'Access-Control-Allow-Origin': '*'}
