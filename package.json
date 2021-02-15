@@ -13,9 +13,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "yarn --cwd task-app install && yarn --cwd task-app build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "cp -a task-app/build/. public/",
+    "heroku-postbuild": "yarn build && yarn deploy"
   },
   "eslintConfig": {
     "extends": [
