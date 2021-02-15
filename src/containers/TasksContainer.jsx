@@ -9,7 +9,7 @@ class TasksContainer extends Component {
 
 	getAuthToken() {
 		var config = {
-			baseURL: 'http://localhost:3000' || 'https://tasks-api-rails.herokuapp.com',
+			baseURL: 'http://localhost:4000' || 'https://tasks-api-rails.herokuapp.com',
 			timeout: 10000,
 			headers: {'Authorization': 'Bearer ' + localStorage.getItem('jwt'),
 			'Access-Control-Allow-Origin': '*'}
@@ -24,7 +24,7 @@ class TasksContainer extends Component {
 			.then(response => {
 				this.props.dispatch(loadTasks(response.data));
 			})
-			.catch(error => console.log(error))
+			.catch(error => console.log(error.message))
 	}
 
 	createTask = ({title, description, priority, due_date, completed}) => {

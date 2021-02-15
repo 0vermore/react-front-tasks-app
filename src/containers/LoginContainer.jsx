@@ -7,7 +7,7 @@ import { createBrowserHistory } from 'history'
 
 const history = createBrowserHistory();
 
-axios.defaults.baseURL = 'https://tasks-api-rails.herokuapp.com';
+axios.defaults.baseURL = 'http://localhost:4000'||'https://tasks-api-rails.herokuapp.com';
 axios.defaults.timeout = 10000;
 axios.defaults.headers = { 'Access-Control-Allow-Origin': '*' }
 
@@ -29,6 +29,7 @@ class LoginContainer extends Component {
                 history.go(0)
             })
             .catch(error => {
+                console.log(error.message);
                 this.props.dispatch(unauthenticated('Login failed'));
             })
     }
