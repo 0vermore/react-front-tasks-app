@@ -21,7 +21,7 @@ class LoginContainer extends Component {
         }
         console.log('Login data:')
         console.log({ data })
-        axios.post('/api/user_token', data)
+        axios.post('/api/signin', data)
             .then(response => {
                 this.props.dispatch(authenticated());
                 localStorage.setItem('jwt', response.data.jwt);
