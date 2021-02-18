@@ -8,6 +8,11 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 	box-sizing: border-box;
   }
+
+hr {
+	position: relative;
+	background-color:cadetblue;
+}
   
   *,
   *:before,
@@ -161,7 +166,7 @@ input[placeholder] {
 
 .container {
 	width: 40%;
-	height: 600px;
+	height: 800px;
 	position: relative;
 	margin: 0 auto;
 	border-radius: 5px;

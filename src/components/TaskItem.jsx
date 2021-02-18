@@ -15,7 +15,8 @@ class TaskItem extends Component {
 
     render() {
         const task = this.props.task;
-        console.log(task.id, task.title, task.completed, task.user_id)
+        console.log('TaskItem:')
+        console.log(task.id, task.title, task.completed)
         return (
             <li className="task" key={task.id} id={task.id}>
                 <input className="taskCheckbox" type="checkbox"

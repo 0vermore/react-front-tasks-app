@@ -2,8 +2,11 @@ import { LOAD_TASKS, ADD_TASK, TOGGLE_TASK, DELETE_TASK } from '../actions/actio
 
 function tasksReducer(state = [], action)
 {
+    console.log({ state, action });
     switch(action.type){
         case LOAD_TASKS:
+            console.log('@LOAD_TASKS');
+            console.log({ state, action });
             return action.tasks;
          
         case ADD_TASK:
@@ -15,19 +18,19 @@ function tasksReducer(state = [], action)
                     description: action.description,
                     priority: action.priority,
                     due_date: action.due_date,
-                    completed: action.completed,
-                    user_id: action.user_id
+                    completed: action.completed
                 }
             ];
             
         case TOGGLE_TASK:
+            console.log('@TOGGLE_TASK');
+            console.log({ state, action });
             return state.map(task => (task.id === action.index)
                 ? {...task, title: action.title,
                     description: action.description,
                     priority: action.priority,
                     due_date: action.due_date,
-                    completed: !task.completed,
-                    user_id: action.user_id}
+                    completed: !task.completed}
                 : task
             );
 

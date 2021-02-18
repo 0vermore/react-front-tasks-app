@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
 import TaskItem from './TaskItem'
 
-class TaskList extends Component {
+class UncompletedList extends Component {
 
     render() {
-        const tasks = this.props.tasks;
-        console.log('TaskList:');
-        console.log(tasks);
-
+        const tasks = this.props.uncompleted;
+        console.log('Uncompleted:')
+        console.log(tasks)
         return (
             <ul className="taskList">
                 {tasks.map((task) => {
@@ -22,4 +21,4 @@ class TaskList extends Component {
     }
 }
 
-export default TaskList;
+export default UncompletedList;

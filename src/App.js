@@ -7,13 +7,14 @@ import '../node_modules/bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/js/dist/alert'
 
 class App extends Component {
+
     loginAlert() {
-        return(
+        return (
             <div className="alert alert-warning fade show" role="alert">
-                Please, <Link to="/signup">sign up</Link> or{' '} 
+                Please, <Link to="/signup">sign up</Link> or{' '}
                 <Link to="/login">log in</Link> to use the app.
             </div>
-        );    
+        );
     }
 
     successMessage() {
@@ -25,12 +26,12 @@ class App extends Component {
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-        );         
-    }    
+        );
+    }
 
     render() {
         if (this.props.auth.authenticated === false) {
-            return <this.loginAlert />;
+            return <this.loginAlert />
         }
 
         return (
@@ -38,14 +39,14 @@ class App extends Component {
                 <this.successMessage />
                 <TasksContainer />
             </div>
-        );        
+        );
     }
 }
 
 const mapStateToProps = (state) => {
-	return {
-		auth: state.auth
-	}
+    return {
+        auth: state.auth
+    }
 }
 
 export default connect(mapStateToProps)(App)
