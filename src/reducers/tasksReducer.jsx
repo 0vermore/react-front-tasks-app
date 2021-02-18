@@ -15,7 +15,8 @@ function tasksReducer(state = [], action)
                     description: action.description,
                     priority: action.priority,
                     due_date: action.due_date,
-                    completed: action.completed
+                    completed: action.completed,
+                    user_id: action.user_id
                 }
             ];
             
@@ -25,7 +26,8 @@ function tasksReducer(state = [], action)
                     description: action.description,
                     priority: action.priority,
                     due_date: action.due_date,
-                    completed: !task.completed}
+                    completed: !task.completed,
+                    user_id: action.user_id}
                 : task
             );
 

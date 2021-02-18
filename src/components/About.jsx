@@ -5,9 +5,11 @@ class About extends Component{
         return(
             <div className="container">
                 <div className="header">
-                    <h3>Existing test account</h3>
+                    <h3>Start of using:</h3>
                     <ul>
-                        <li>Email: email@test.io, password: 123456</li>
+                        <li>1. Create account on page SignUp</li>
+                        <li>2. Sign in</li>
+                        <li>3. Add yours tasks!</li>
                     </ul>
                 </div>
             </div>

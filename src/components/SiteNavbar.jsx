@@ -14,6 +14,9 @@ class SiteNavbar extends Component {
                     <Nav className="ml-auto">
                         <Navbar.Brand><Link to="/about">About</Link></Navbar.Brand>
                         {this.props.auth.authenticated === false &&
+                            <Navbar.Brand><Link to="/signup">Signup</Link></Navbar.Brand>
+                        }
+                        {this.props.auth.authenticated === false &&
                             <Navbar.Brand><Link to="/login">Login</Link></Navbar.Brand>
                         }
                         {this.props.auth.authenticated === true &&

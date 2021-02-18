@@ -10,8 +10,8 @@ class App extends Component {
     loginAlert() {
         return(
             <div className="alert alert-warning fade show" role="alert">
-                Please, log in to use the app.{' '}
-                <Link to="/login">Login</Link>
+                Please, <Link to="/signup">sign up</Link> or{' '} 
+                <Link to="/login">log in</Link> to use the app.
             </div>
         );    
     }

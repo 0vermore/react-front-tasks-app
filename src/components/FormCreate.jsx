@@ -41,12 +41,14 @@ export class FormCreate extends Component {
         console.log('onSubmit');
         this.props.onSubmit({
             title: this.state.title, description: this.state.description,
-            priority: parseInt(this.state.priority), due_date: this.state.due_date, completed: this.state.completed
+            priority: parseInt(this.state.priority), due_date: this.state.due_date, 
+            completed: this.state.completed
         })
         console.log('onSubmitValues');
         console.log({
             title: this.state.title, description: this.state.description,
-            priority: parseInt(this.state.priority), due_date: this.state.due_date, completed: this.state.completed
+            priority: parseInt(this.state.priority), due_date: this.state.due_date,
+             completed: this.state.completed
         });
         this.props.closeModal();
     }

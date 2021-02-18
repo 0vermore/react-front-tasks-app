@@ -9,9 +9,8 @@ class TasksContainer extends Component {
 
 	getAuthToken() {
 		var config = {
-			baseURL: 'https://tasks-rails-back-api.herokuapp.com',
-			headers: {'Authorization': 'Bearer ' + localStorage.getItem('jwt'),
-			'Access-Control-Allow-Origin': '*'}
+			baseURL: 'http://localhost:4000',
+			headers: { 'Authorization': 'Bearer' + localStorage.getItem('jwt') }
 		}
 		return config;
 	}
@@ -26,22 +25,23 @@ class TasksContainer extends Component {
 			.catch(error => console.log(error.message))
 	}
 
-	createTask = ({title, description, priority, due_date, completed}) => {
+	createTask = ({ title, description, priority, due_date, completed, user_id }) => {
 
 		console.log('CreateTaskValues');
-		console.log(title, description, priority, due_date, completed);
+		console.log(title, description, priority, due_date, completed, user_id);
 		var config = this.getAuthToken();
 		axios.post('/api/tasks', {
 			task: {
 				title: title, description: description,
-				priority: priority, due_date: due_date, completed: completed
+				priority: priority, due_date: due_date, completed: completed, user_id: user_id
 			}
 		}, config)
 			.then(response => {
 				console.log('response addtask');
-				console.log(title, description, priority, due_date, completed);
+				console.log(title, description, priority, due_date, completed, user_id);
 				this.props.dispatch(addTask(response.data.id, response.data.title,
-					response.data.description, response.data.priority, response.data.due_date, response.data.completed))
+					response.data.description, response.data.priority,
+					response.data.due_date, response.data.completed, response.data.user_id))
 			})
 			.catch(error => console.log(error))
 
@@ -52,8 +52,12 @@ class TasksContainer extends Component {
 		console.log('UpdateTaskParams')
 		console.log(params)
 
-		axios.put(`/api/tasks/${params.id}`, { task: { title: params.title, description: params.description, 
-			priority: params.priority, due_date: params.due_date, completed: params.completed } }, config)
+		axios.put(`/api/tasks/${params.id}`, {
+			task: {
+				title: params.title, description: params.description,
+				priority: params.priority, due_date: params.due_date, completed: params.completed
+			}
+		}, config)
 			.then(response => {
 				console.log('response updatetask');
 				console.log(params.title, params.description, params.priority, params.due_date, params.completed);

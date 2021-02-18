@@ -4,11 +4,11 @@ export function loadTasks(tasks) {
     return { type: actions.LOAD_TASKS, tasks: tasks }
 }
 
-export function addTask(id, title, description, priority, due_date, completed) {
+export function addTask(id, title, description, priority, due_date, completed, user_id) {
     return {
         type: actions.ADD_TASK, id: id, title: title,
         description: description, priority: priority,
-        due_date: due_date, completed: completed
+        due_date: due_date, completed: completed, user_id: user_id
     }
 }
 
