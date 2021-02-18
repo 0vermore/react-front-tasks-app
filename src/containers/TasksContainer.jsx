@@ -9,7 +9,7 @@ class TasksContainer extends Component {
 
 	getAuthToken() {
 		var config = {
-			baseURL: 'http://localhost:4000',
+			baseURL: 'https://tasks-rails-back-api.herokuapp.com',
 			headers: { 'Authorization': 'Bearer' + localStorage.getItem('jwt') }
 		}
 		return config;

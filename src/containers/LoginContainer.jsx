@@ -7,7 +7,7 @@ import { createBrowserHistory } from 'history'
 
 const history = createBrowserHistory();
 
-axios.defaults.baseURL = 'http://localhost:4000';
+axios.defaults.baseURL = 'https://tasks-rails-back-api.herokuapp.com';
 axios.defaults.timeout = 10000;
 axios.defaults.headers = { 'Access-Control-Allow-Origin': '*' }
 

@@ -20,7 +20,7 @@ class SignupContainer extends Component {
             password_confirmation: params.password_confirmation
         }).toString();
 
-        const url = "http://localhost:4000/api/signup?" + props;
+        const url = "https://tasks-rails-back-api.herokuapp.com/api/signup?" + props;
 
         axios.post(url, data)
             .then(response => {
