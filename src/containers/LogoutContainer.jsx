@@ -8,7 +8,7 @@ const history = createBrowserHistory()
 class LogoutContainer extends Component {
     componentWillMount() {
         this.props.dispatch(unauthenticated());
-        localStorage.removeItem('jwt');
+        localStorage.removeItem('token');
         history.push('/')
         history.go(0)
     }

@@ -7,9 +7,8 @@ class About extends Component{
                 <div className="header">
                     <h3>Start of using:</h3>
                     <ul>
-                        <li>1. Create account on page SignUp</li>
-                        <li>2. Sign in</li>
-                        <li>3. Add yours tasks!</li>
+                        <li>SignUp to create account</li>
+                        <li>Log in if you have account</li>
                     </ul>
                 </div>
             </div>

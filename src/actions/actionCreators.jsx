@@ -12,8 +12,8 @@ export function addTask(id, title, description, priority, due_date, completed) {
     }
 }
 
-export function toggleTask(index, title, description, priority, due_date, completed) {
-    return { type: actions.TOGGLE_TASK, index: index, title: title,
+export function updateTask(index, title, description, priority, due_date, completed) {
+    return { type: actions.UPDATE_TASK, index: index, title: title,
         description: description, priority: priority,
         due_date: due_date, completed: completed}
 }

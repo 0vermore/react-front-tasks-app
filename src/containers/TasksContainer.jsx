@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { connect } from 'react-redux'
-import { loadTasks, addTask, toggleTask, deleteTask } from '../actions/actionCreators'
+import { loadTasks, addTask, updateTask, deleteTask } from '../actions/actionCreators'
 import TaskList from '../components/TaskList'
 import ModalContainerCreate from './ModalContainerCreate'
 import Loader from '../components/Loader'
@@ -17,7 +17,8 @@ class TasksContainer extends Component {
 	getAuthToken() {
 		var config = {
 			baseURL: 'https://tasks-rails-back-api.herokuapp.com',
-			headers: { 'Authorization': 'Bearer' + localStorage.getItem('jwt') }
+			// baseURL: 'http://localhost:4000',
+			headers: { 'Authorization': localStorage.getItem('token') }
 		}
 		return config;
 	}
@@ -70,7 +71,7 @@ class TasksContainer extends Component {
 			.then(response => {
 				console.log('response updatetask');
 				console.log(params.id, params.title, params.description, params.priority, params.due_date, params.completed);
-				this.props.dispatch(toggleTask(params.id, params.title, params.description,
+				this.props.dispatch(updateTask(params.id, params.title, params.description,
 					params.priority, params.due_date, params.completed))
 			})
 			.catch(error => console.log(error))

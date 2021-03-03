@@ -42,7 +42,7 @@ export class ModalContainer extends Component {
         const task = this.props.task;
         return (
             <React.Fragment>
-                <TriggerButton
+                <TriggerButton className="triggerButton"
                     showModal={this.showModal}
                     buttonRef={(n) => (this.TriggerButton = n)}
                     triggerText={this.props.triggerText}

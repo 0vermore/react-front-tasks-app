@@ -8,33 +8,25 @@ import { createBrowserHistory } from 'history'
 const history = createBrowserHistory();
 
 axios.defaults.baseURL = 'https://tasks-rails-back-api.herokuapp.com';
+// axios.defaults.baseURL = 'http://localhost:4000';
 axios.defaults.timeout = 10000;
 axios.defaults.headers = { 'Access-Control-Allow-Origin': '*' }
 
 class LoginContainer extends Component {
-    getAuthToken() {
-        var config = {
-            headers: { 'Authorization': 'Bearer' + localStorage.getItem('jwt') }
-        }
-        return config;
-    }
 
     handleSubmit = (params) => {
-        let config = this.getAuthToken();
         let data = {
-            auth: {
-                email: params.email,
-                password: params.password
-            }
+            email: params.email,
+            password: params.password
         }
         console.log('Login data:')
         console.log({ data })
         axios.post('/api/signin', data)
             .then(response => {
                 this.props.dispatch(authenticated());
-                console.log('Response.data.jwt:')
-                console.log(response.data.jwt)
-                localStorage.setItem('jwt', response.data.jwt);
+                console.log('Response.data.token:')
+                console.log(response.data.token)
+                localStorage.setItem('token', response.data.token);
                 history.push('/')
                 history.go(0)
             })

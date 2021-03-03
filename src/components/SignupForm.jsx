@@ -26,7 +26,7 @@ class SignupForm extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        this.props.handleSubmit({email: this.state.email, password: this.state.password, password_confirmation: this.state.password_confirmation})
+        this.props.handleSubmit({email: this.state.email, password: this.state.password})
     }
 
     render() {

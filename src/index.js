@@ -16,8 +16,8 @@ import reportWebVitals from './reportWebVitals';
 
 const store = configureStore()
 
-const jwt = localStorage.getItem('jwt')
-if (jwt) {
+const token = localStorage.getItem('token')
+if (token) {
     store.dispatch(authenticated())
 }
 else {

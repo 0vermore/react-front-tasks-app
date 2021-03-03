@@ -1,4 +1,4 @@
-import { LOAD_TASKS, ADD_TASK, TOGGLE_TASK, DELETE_TASK } from '../actions/actionTypes'
+import { LOAD_TASKS, ADD_TASK, UPDATE_TASK, DELETE_TASK } from '../actions/actionTypes'
 
 function tasksReducer(state = [], action)
 {
@@ -22,9 +22,7 @@ function tasksReducer(state = [], action)
                 }
             ];
             
-        case TOGGLE_TASK:
-            console.log('@TOGGLE_TASK');
-            console.log({ state, action });
+        case UPDATE_TASK:
             return state.map(task => (task.id === action.index)
                 ? {...task, title: action.title,
                     description: action.description,

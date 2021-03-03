@@ -16,22 +16,20 @@ class SignupContainer extends Component {
 
         const props = new URLSearchParams({
             email: params.email,
-            password: params.password,
-            password_confirmation: params.password_confirmation
+            password: params.password
         }).toString();
 
         const url = "https://tasks-rails-back-api.herokuapp.com/api/signup?" + props;
+        // const url = "http://localhost:4000/api/signup?" + props;
 
         axios.post(url, data)
             .then(response => {
-                if (response.status == '201') {
-                    history.push('/')
-                    history.go(0)
-                    console.log('Account created successufuly!')
-                }
-                else{
-                    console.log('Response is not ok(');
-                }
+                console.log('Response.data.token:')
+                console.log(response.data.token)
+                this.props.dispatch(authenticated());
+                localStorage.setItem('token', response.data.token);
+                history.push('/')
+                history.go(0)
             })
             .catch(error => {
                 console.log(error.message);
